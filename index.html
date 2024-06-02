@@ -14,7 +14,7 @@
   </head>
   <body class="poppins-medium">
     <main>
-      <form class="card">
+      <form id="mainform" name="mainform" class="card">
         <h1 class="poppins-extrabold">Ayo Hitung BMI</h1>
         <div style="display: flex; flex-direction: column; gap: 14px">
           <div class="input-parent w-full">
@@ -25,6 +25,7 @@
               placeholder="Isi dengan tinggi badan anda (cm)"
               id="height"
               name="height"
+              min="0"
             />
           </div>
           <div class="input-parent w-full">
@@ -35,6 +36,7 @@
               placeholder="Isi dengan tinggi badan anda (cm)"
               id="weight"
               name="weight"
+              min="0"
             />
           </div>
         </div>
@@ -46,10 +48,41 @@
           Hitung
         </button>
       </form>
-      <div class="card">
-        
+      <div class="card hidden" id="resultcard">
+        <h1 class="poppins-extrabold">Hasil</h1>
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <h1 class="poppins-regular" style="font-size: 25px;">BMI Anda</h1>
+          :
+          <span id="result" class="poppins-bold" style="font-size: 23px;">0</span>
+          <span id="predicate" class="poppins-extrabold" style="font-size: 23px;">()</span>
+        </div>
+        <div class="categories">
+          <div class="category-card">
+            <div class="poppins-regular" style="font-size: 16px;">Kurus</div>
+            <div class="poppins-bold" style="font-size: 23px;">kurang dari 18.5</div>
+          </div>
+          <div class="category-card">
+            <div class="poppins-regular" style="font-size: 16px;">Normal</div>
+            <div class="poppins-bold" style="font-size: 23px;">18.5 s/d 24.9</div>
+          </div>
+          <div class="category-card">
+            <div class="poppins-regular" style="font-size: 16px;">Gemuk</div>
+            <div class="poppins-bold" style="font-size: 23px;">25 s/d 29.9</div>
+          </div>
+          <div class="category-card">
+            <div class="poppins-regular" style="font-size: 16px;">Obesitas</div>
+            <div class="poppins-bold" style="font-size: 23px;">mulai dari 30</div>
+          </div>
+        </div>
       </div>
     </main>
+    <script src="./main.js"></script>
+    <script>
+      mainform.addEventListener("submit", (e) => {
+        e.preventDefault();
+        startCount();
+      });
+    </script>
     <footer>
       <div>&copy; Muhammad Rizkiansyah 2024</div>
     </footer>

@@ -164,8 +164,10 @@ main {
   color: #fafafa;
   text-align: center;
   border-radius: 10px;
-  transition: transform .4s ease-in-out, background-color .2s ease-in-out;
+  transition: transform 0.4s ease-in-out, background-color 0.2s ease-in-out;
   padding: 15px 20px;
+  outline: 0;
+  border: 0;
 }
 
 .button:hover {
@@ -181,4 +183,35 @@ footer {
   background-color: #1f1f1f;
   padding: 30px 45px;
   color: #fff;
+}
+
+.categories {
+  /* padding: 15px 20px; */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.category-card {
+  border-radius: 10px;
+  background-color: #e5e5e5;
+  border: 1px solid #333;
+  text-align: left;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  .categories {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
