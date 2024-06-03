@@ -22,5 +22,7 @@ function startCount() {
   const status = compareBmi(Number(bmi));
   result.innerHTML = bmi;
   predicate.innerHTML = "".concat("(", status, ")");
-  resultCard.classList.remove("hidden");
+  if (bmi !== NaN) {
+    resultCard.classList.remove("hidden");
+  }
 }
